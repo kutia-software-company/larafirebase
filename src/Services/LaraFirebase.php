@@ -4,7 +4,7 @@ namespace KutiaDigitalAgency\Larafirebase\Services;
 
 use Illuminate\Support\Facades\Http;
 
-class Firebase
+class Larafirebase
 {
     private $title;
     
