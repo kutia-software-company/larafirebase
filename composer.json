@@ -1,0 +1,25 @@
+{
+    "name": "kutia-digital-agency/larafirebase",
+    "description": "Modern API development in Laravel.",
+    "homepage": "https://github.com/one2tek/larapi",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gentrit Abazi",
+            "email": "gentritabazi01@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "kutia-digital-agency\\larafirebase\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
