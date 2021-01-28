@@ -1,7 +1,7 @@
 {
     "name": "kutia-digital-agency/larafirebase",
-    "description": "Modern API development in Laravel.",
-    "homepage": "https://github.com/one2tek/larapi",
+    "description": "Laravel Firebase Push Notification.",
+    "homepage": "https://github.com/kutia-digital-agency/larafirebase",
     "license": "MIT",
     "authors": [
         {
