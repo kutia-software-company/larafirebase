@@ -57,6 +57,9 @@ class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
             ->withImage('https://firebase.google.com/images/social.png')
             ->withClickAction('admin/notifications')
             ->sendNotification($deviceTokens);
+        
+        // Or
+        return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendNotification($deviceTokens);
     }
 
     public function sendMessage()
@@ -69,6 +72,9 @@ class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
         return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->sendMessage($deviceTokens);
+            
+        // Or
+        return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendMessage($deviceTokens);
     }
 }
 ```
