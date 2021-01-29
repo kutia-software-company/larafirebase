@@ -1,6 +1,6 @@
 <?php
 
-namespace KutiaDigitalAgency\Larafirebase\Providers;
+namespace Kutia\Larafirebase\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

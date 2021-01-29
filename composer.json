@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "KutiaDigitalAgency\\Larafirebase\\": "src/"
+            "Kutia\\Larafirebase\\": "src/"
         }
     },
     "require": {
@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "KutiaDigitalAgency\\Larafirebase\\Providers\\LarafirebaseServiceProvider"
+                "Kutia\\Larafirebase\\Providers\\LarafirebaseServiceProvider"
             ]
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace KutiaDigitalAgency\Larafirebase\Services;
+namespace Kutia\Larafirebase\Services;
 
 use Illuminate\Support\Facades\Http;
 
