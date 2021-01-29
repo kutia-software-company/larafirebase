@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "kutia-digital-agency\\larafirebase\\Providers\\LaraFirebaseServiceProvider"
+                "KutiaDigitalAgency\\Larafirebase\\Providers\\LaraFirebaseServiceProvider"
             ]
         }
     }
