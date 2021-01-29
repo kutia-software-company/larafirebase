@@ -14,7 +14,7 @@ Follow the steps below to install the package.
 **Composer**
 
 ```
-composer require kutia-digital-agency/larafirebase
+composer require kutia-software-company/larafirebase
 ```
 
 **Copy Config**

@@ -1,6 +1,6 @@
 {
     "name": "kutia-software-company/larafirebase",
-    "description": "Laravel Firebase Push Notification.",
+    "description": "Laravel Firebase Cloud Messaging.",
     "homepage": "https://github.com/kutia-software-company/larafirebase",
     "license": "MIT",
     "authors": [
