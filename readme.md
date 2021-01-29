@@ -19,7 +19,7 @@ composer require kutia-digital-agency/larafirebase
 
 **Copy Config**
 
-Run `php artisan vendor:publish --provider="kutia-digital-agency\larafirebase\Providers\LaraFirebaseServiceProvider"` to publish the `larafirebase.php` config file.
+Run `php artisan vendor:publish --provider="Kutia\Larafirebase\Providers\LarafirebaseServiceProvider"` to publish the `larafirebase.php` config file.
 
 **Get Athentication Key**
 
