@@ -16,7 +16,7 @@ class Larafirebase
 
     private $fromArray;
 
-    const FIREBASE_SEND_NOTIFICATION_URL = 'https://fcm.googleapis.com/fcm/send';
+    const API_URI = 'https://fcm.googleapis.com/fcm/send';
 
     public function withTitle($title)
     {
@@ -87,7 +87,7 @@ class Larafirebase
     {
         $response = Http::withHeaders([
             'Authorization' => 'key='. config('larafirebase.authentication_key')
-        ])->post(self::FIREBASE_SEND_NOTIFICATION_URL, $fields);
+        ])->post(self::API_URI, $fields);
 
         return $response->body();
     }
