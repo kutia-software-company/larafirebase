@@ -3,6 +3,7 @@
 namespace Kutia\Larafirebase\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Kutia\Larafirebase\Services\Larafirebase;
 
 class LarafirebaseServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,7 @@ class LarafirebaseServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__. '/../Config/larafirebase.php' => config_path('larafirebase.php'),
         ]);
+
+        $this->app->bind('larafirebase', Larafirebase::class);
     }
 }

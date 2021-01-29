@@ -41,17 +41,10 @@ Follow the steps below to find how to use the package.
 namespace {CONTROLLER_NAMESPACE};
 
 use {BASE_CONTROLLER_NAMESPACE};
-use Kutia\Larafirebase\Services\Larafirebase;
+use Kutia\Larafirebase\Facades\Larafirebase;
 
 class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
 {
-    private $laraFirebase;
-
-    public function __construct(Larafirebase $laraFirebase)
-    {
-        $this->laraFirebase = $laraFirebase;
-    }
-
     public function sendNotification()
     {
         $deviceTokens = [
@@ -59,8 +52,7 @@ class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
             '{TOKEN_2}'
         ];
         
-        return $this->laraFirebase
-            ->withTitle('Test Title')
+        return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
             ->withClickAction('admin/notifications')
@@ -74,8 +66,7 @@ class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
             '{TOKEN_2}'
         ];
         
-        return $this->laraFirebase
-            ->withTitle('Test Title')
+        return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->sendMessage($deviceTokens);
     }
