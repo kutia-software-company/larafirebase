@@ -38,12 +38,12 @@ Follow the steps below to find how to use the package.
 ```php
 <?php
 
-namespace Api\V1\Tests\Controllers;
+namespace {CONTROLLER_NAMESPACE};
 
-use Infrastructure\Abstracts\Controller;
+use {BASE_CONTROLLER_NAMESPACE};
 use Kutia\Larafirebase\Services\Larafirebase;
 
-class TestFirebase extends Controller
+class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
 {
     private $laraFirebase;
 
