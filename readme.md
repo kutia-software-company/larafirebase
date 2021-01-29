@@ -1,6 +1,6 @@
 ### Introduction
 
-**Larafirebase** is a package thats offers you to send push notifications via Firebase in Laravel.
+**Larafirebase** is a package thats offers you to send push notifications or custom messages via Firebase in Laravel.
 
 Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably deliver messages at no cost.
 
