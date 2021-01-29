@@ -4,7 +4,7 @@ namespace KutiaDigitalAgency\Larafirebase\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaraFirebaseServiceProvider extends ServiceProvider
+class LarafirebaseServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
