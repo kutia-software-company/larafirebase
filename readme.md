@@ -19,7 +19,7 @@ composer require kutia-digital-agency/larafirebase
 
 **Copy Config**
 
-Run `php artisan vendor:publish --provider="kutia-digital-agency\larafirebase\Providers\LaraFirebaseServiceProvider"` to publish the `larafirebase.php` config file.
+Run `php artisan vendor:publish --provider="Kutia\Larafirebase\Providers\LarafirebaseServiceProvider"` to publish the `larafirebase.php` config file.
 
 **Get Athentication Key**
 
@@ -30,3 +30,58 @@ Get Authentication Key from https://console.firebase.google.com/
 ```
 'authentication_key' => '{AUTHENTICATION_KEY}'
 ```
+
+### Usage
+
+Follow the steps below to find how to use the package.
+
+```php
+<?php
+
+namespace Api\V1\Tests\Controllers;
+
+use Infrastructure\Abstracts\Controller;
+use Kutia\Larafirebase\Services\Larafirebase;
+
+class TestFirebase extends Controller
+{
+    private $laraFirebase;
+
+    public function __construct(Larafirebase $laraFirebase)
+    {
+        $this->laraFirebase = $laraFirebase;
+    }
+
+    public function sendNotification()
+    {
+        $deviceTokens = [
+            '{TOKEN_1}',
+            '{TOKEN_2}'
+        ];
+        
+        return $this->laraFirebase
+            ->withTitle('Test Title')
+            ->withBody('Test body')
+            ->withImage('https://firebase.google.com/images/social.png')
+            ->withClickAction('admin/notifications')
+            ->sendNotification($deviceTokens);
+    }
+
+    public function sendMessage()
+    {
+        $deviceTokens = [
+            '{TOKEN_1}',
+            '{TOKEN_2}'
+        ];
+        
+        return $this->laraFirebase
+            ->withTitle('Test Title')
+            ->withBody('Test body')
+            ->sendMessage($deviceTokens);
+    }
+}
+```
+
+### Author
+* Name: **Gentrit Abazi**
+* Email: **gentritabazi01@gmail.com**
