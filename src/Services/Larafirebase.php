@@ -62,8 +62,7 @@ class Larafirebase
                 'body' => $this->body,
                 'image' => $this->image,
                 'click_action' => $this->clickAction
-            ],
-            'data' => ['Nick' => 'a']
+            ]
         );
         
         return $this->callApi($fields);
