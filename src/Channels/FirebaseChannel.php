@@ -11,7 +11,7 @@ class FirebaseChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        /** @var FirebaseMessage $message */
+        /** @var \Kutia\Larafirebase\FirebaseMessage $message */
         $message = $notification->toFirebase($notifiable);
     }
 }
