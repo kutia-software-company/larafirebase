@@ -105,13 +105,7 @@ class SendBirthdayReminder extends Notification
         return (new FirebaseMessage)
             ->withTitle('Hey, ', $notifiable->first_name)
             ->withBody('Happy Birthday!')
-            ->asNotification($deviceTokens);
-    
-        // OR
-        return (new FirebaseMessage)
-            ->withTitle('Hey, ', $notifiable->first_name)
-            ->withBody('Happy Birthday!')
-            ->asMessage($deviceTokens);
+            ->asNotification($deviceTokens); // OR ->asMessage($deviceTokens);
     }
 }
 ```
