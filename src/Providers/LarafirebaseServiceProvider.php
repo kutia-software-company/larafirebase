@@ -3,7 +3,9 @@
 namespace Kutia\Larafirebase\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Notifications\ChannelManager;
 use Kutia\Larafirebase\Services\Larafirebase;
+use Kutia\Larafirebase\Channels\FirebaseChannel;
 
 class LarafirebaseServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,12 @@ class LarafirebaseServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $app = $this->app;
+
+        $this->app->make(ChannelManager::class)->extend('firebase', function () use ($app) {
+            return $app->make(FirebaseChannel::class);
+        });
+
         $this->mergeConfigFrom(
             __DIR__. '../../Config/larafirebase.php',
             'larafirebase'
