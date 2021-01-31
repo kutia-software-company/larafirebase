@@ -110,6 +110,8 @@ class SendBirthdayReminder extends Notification
 }
 ```
 
+Check example how to receive messages or push notifications in a [JavaScript client](/javascript-client).
+
 ### Author
 * Name: **Gentrit Abazi**
 * Email: **gentritabazi01@gmail.com**
