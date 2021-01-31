@@ -35,15 +35,12 @@ Get Authentication Key from https://console.firebase.google.com/
 
 Follow the steps below to find how to use the package.
 
+Example usage in **Controller/Service** or any class:
+
 ```php
-<?php
-
-namespace {CONTROLLER_NAMESPACE};
-
-use {BASE_CONTROLLER_NAMESPACE};
 use Kutia\Larafirebase\Facades\Larafirebase;
 
-class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
+class TestFirebaseController
 {
     public function sendNotification()
     {
@@ -75,6 +72,40 @@ class TestFirebase extends {BASE_CONTROLLER_NAMESPACE}
             
         // Or
         return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendMessage($deviceTokens);
+    }
+}
+```
+
+Example usage in **Notification** class:
+
+```php
+use Illuminate\Notifications\Notification;
+use Kutia\Larafirebase\Messages\FirebaseMessage;
+
+class SendBirthdayReminder extends Notification
+{
+    /**
+     * Get the notification's delivery channels.
+     */
+    public function via($notifiable)
+    {
+        return ['firebase'];
+    }
+
+    /**
+     * Get the firebase representation of the notification.
+     */
+    public function toFirebase($notifiable)
+    {
+        $deviceTokens = [
+            '{TOKEN_1}',
+            '{TOKEN_2}'
+        ];
+        
+        return (new FirebaseMessage)
+            ->withTitle('Hey, ', $notifiable->first_name)
+            ->withBody('Happy Birthday!')
+            ->asNotification($deviceTokens); // OR ->asMessage($deviceTokens);
     }
 }
 ```
