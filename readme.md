@@ -40,7 +40,7 @@ Example usage in **Controller/Service** or any class:
 ```php
 use Kutia\Larafirebase\Facades\Larafirebase;
 
-class TestFirebaseController
+class MyController
 {
     public function sendNotification()
     {
