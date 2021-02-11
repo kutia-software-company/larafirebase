@@ -53,6 +53,7 @@ class TestFirebaseController
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
             ->withClickAction('admin/notifications')
+            ->withPriority('high')
             ->sendNotification($deviceTokens);
         
         // Or

@@ -6,6 +6,8 @@ use Kutia\Larafirebase\Facades\Larafirebase;
 
 class FirebaseMessage
 {
+    const PRIORITY_NORMAL = 'normal';
+
     private $title;
     
     private $body;
@@ -13,6 +15,8 @@ class FirebaseMessage
     private $clickAction;
 
     private $image;
+
+    private $priority = self::PRIORITY_NORMAL;
 
     private $fromArray;
 
@@ -44,6 +48,13 @@ class FirebaseMessage
         return $this;
     }
 
+    public function withPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
     public function fromArray($fromArray)
     {
         $this->fromArray = $fromArray;
@@ -59,8 +70,9 @@ class FirebaseMessage
 
         return Larafirebase::withTitle($this->title)
             ->withBody($this->body)
-            ->withImage($this->image)
             ->withClickAction($this->clickAction)
+            ->withImage($this->image)
+            ->withPriority($this->priority)
             ->sendNotification($deviceTokens);
     }
 
@@ -72,8 +84,9 @@ class FirebaseMessage
 
         return Larafirebase::withTitle($this->title)
             ->withBody($this->body)
-            ->withImage($this->image)
             ->withClickAction($this->clickAction)
+            ->withImage($this->image)
+            ->withPriority($this->priority)
             ->sendMessage($deviceTokens);
     }
 }
