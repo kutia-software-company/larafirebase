@@ -57,7 +57,8 @@ class FirebaseMessage
             return Larafirebase::fromArray($this->fromArray)->sendNotification($deviceTokens);
         }
 
-        return Larafirebase::withBody($this->body)
+        return Larafirebase::withTitle($this->title)
+            ->withBody($this->body)
             ->withImage($this->image)
             ->withClickAction($this->clickAction)
             ->sendNotification($deviceTokens);
@@ -69,7 +70,8 @@ class FirebaseMessage
             return Larafirebase::fromArray($this->fromArray)->sendMessage($deviceTokens);
         }
 
-        return Larafirebase::withBody($this->body)
+        return Larafirebase::withTitle($this->title)
+            ->withBody($this->body)
             ->withImage($this->image)
             ->withClickAction($this->clickAction)
             ->sendMessage($deviceTokens);
