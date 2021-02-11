@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Http;
 
 class Larafirebase
 {
+    const PRIORITY_NORMAL = 'normal';
+
     private $title;
     
     private $body;
@@ -13,6 +15,8 @@ class Larafirebase
     private $clickAction;
 
     private $image;
+
+    private $priority = self::PRIORITY_NORMAL;
 
     private $fromArray;
 
@@ -46,6 +50,13 @@ class Larafirebase
         return $this;
     }
 
+    public function withPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
     public function fromArray($fromArray)
     {
         $this->fromArray = $fromArray;
@@ -62,7 +73,8 @@ class Larafirebase
                 'body' => $this->body,
                 'image' => $this->image,
                 'click_action' => $this->clickAction
-            ]
+            ],
+            'priority' => $this->priority
         );
         
         return $this->callApi($fields);
@@ -76,7 +88,8 @@ class Larafirebase
                 'title' => $this->title,
                 'body' => $this->body,
                 'image' => $this->image
-            ]
+            ],
+            'priority' => $this->priority
         );
         
         return $this->callApi($fields);
