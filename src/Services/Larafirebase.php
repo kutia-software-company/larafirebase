@@ -110,9 +110,11 @@ class Larafirebase
         if (is_array($tokens)) {
             return $tokens;
         }
+
         if (is_string($tokens)) {
             return explode(',', $tokens);
         }
-        throw new UnsupportedTokenFormat('Please pass tokens as array [token1, token2] or as string (use comma as separator if multiple passed)');
+
+        throw new UnsupportedTokenFormat('Please pass tokens as array [token1, token2] or as string (use comma as separator if multiple passed).');
     }
 }
