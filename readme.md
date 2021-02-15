@@ -40,7 +40,7 @@ Example usage in **Controller/Service** or any class:
 ```php
 use Kutia\Larafirebase\Facades\Larafirebase;
 
-class TestFirebaseController
+class MyController
 {
     public function sendNotification()
     {
@@ -115,4 +115,4 @@ Check example how to receive messages or push notifications in a [JavaScript cli
 
 ### Author
 * Name: **Gentrit Abazi**
-* Email: **gentritabazi01@gmail.com**
+* Email: **gentritabazi@kutia.net**
