@@ -181,4 +181,4 @@ return Larafirebase::fromRaw([
 
 ### Author
 * Name: **Gentrit Abazi**
-* Email: **gentritabazi01@gmail.com**
+* Email: **gentritabazi@kutia.net**

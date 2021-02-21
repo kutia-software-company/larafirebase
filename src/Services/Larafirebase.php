@@ -3,6 +3,7 @@
 namespace Kutia\Larafirebase\Services;
 
 use Illuminate\Support\Facades\Http;
+use Kutia\Larafirebase\Exceptions\UnsupportedTokenFormat;
 
 class Larafirebase
 {
@@ -76,7 +77,7 @@ class Larafirebase
     public function sendNotification($tokens)
     {
         $fields = array(
-            'registration_ids' => $tokens,
+            'registration_ids' => $this->validateToken($tokens),
             'notification' => ($this->fromArray) ? $this->fromArray : [
                 'title' => $this->title,
                 'body' => $this->body,
@@ -85,14 +86,14 @@ class Larafirebase
             ],
             'priority' => $this->priority
         );
-        
+
         return $this->callApi($fields);
     }
 
     public function sendMessage($tokens)
     {
         $fields = array(
-            'registration_ids' => $tokens,
+            'registration_ids' => $this->validateToken($tokens),
             'data' => ($this->fromArray) ? $this->fromArray : [
                 'title' => $this->title,
                 'body' => $this->body,
@@ -112,9 +113,22 @@ class Larafirebase
     public function callApi($fields)
     {
         $response = Http::withHeaders([
-            'Authorization' => 'key='. config('larafirebase.authentication_key')
+            'Authorization' => 'key=' . config('larafirebase.authentication_key')
         ])->post(self::API_URI, $fields);
 
         return $response->body();
+    }
+
+    private function validateToken($tokens)
+    {
+        if (is_array($tokens)) {
+            return $tokens;
+        }
+
+        if (is_string($tokens)) {
+            return explode(',', $tokens);
+        }
+
+        throw new UnsupportedTokenFormat('Please pass tokens as array [token1, token2] or as string (use comma as separator if multiple passed).');
     }
 }
