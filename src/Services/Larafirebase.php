@@ -21,6 +21,8 @@ class Larafirebase
 
     private $fromArray;
 
+    private $fromRaw;
+
     const API_URI = 'https://fcm.googleapis.com/fcm/send';
 
     public function withTitle($title)
@@ -65,6 +67,13 @@ class Larafirebase
         return $this;
     }
 
+    public function fromRaw($fromRaw)
+    {
+        $this->fromRaw = $fromRaw;
+
+        return $this;
+    }
+
     public function sendNotification($tokens)
     {
         $fields = array(
@@ -94,6 +103,11 @@ class Larafirebase
         );
         
         return $this->callApi($fields);
+    }
+
+    public function send()
+    {
+        return $this->callApi($this->fromRaw);
     }
 
     public function callApi($fields)

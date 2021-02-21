@@ -111,7 +111,73 @@ class SendBirthdayReminder extends Notification
 }
 ```
 
-Check example how to receive messages or push notifications in a [JavaScript client](/javascript-client).
+
+### Tips
+- Check example how to receive messages or push notifications in a [JavaScript client](/javascript-client).
+- You can use `larafirebase()` helper instead of Facade.
+
+
+### Payload
+
+Check how is formed payload to send to firebase:
+
+Example 1:
+
+```php
+Larafirebase::withTitle('Test Title')->withBody('Test body')->sendNotification('token1');
+```
+
+```json
+{
+  "registration_ids": [
+    "token1"
+  ],
+  "notification": {
+    "title": "Test Title",
+    "body": "Test body"
+  },
+  "priority": "normal"
+}
+```
+
+Example 2:
+
+```php
+Larafirebase::withTitle('Test Title')->withBody('Test body')->sendMessage('token1');
+```
+
+```json
+{
+  "registration_ids": [
+    "token1"
+  ],
+  "data": {
+    "title": "Test Title",
+    "body": "Test body"
+  },
+  "priority": "normal"
+}
+```
+
+If you want to create payload from scratch you can use method `fromRaw`, for example:
+
+```php
+return Larafirebase::fromRaw([
+    'registration_ids' => ['token1', 'token2'],
+    'data' => [
+        'key_1' => 'Value 1',
+        'key_2' => 'Value 2'
+    ],
+    'android' => [
+        'ttl' => '1000s',
+        'priority' => 'normal',
+        'notification' => [
+            'key_1' => 'Value 1',
+            'key_2' => 'Value 2'
+        ],
+    ],
+])->send();
+```
 
 ### Author
 * Name: **Gentrit Abazi**
