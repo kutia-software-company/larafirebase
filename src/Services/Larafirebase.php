@@ -110,7 +110,7 @@ class Larafirebase
         return $this->callApi($this->fromRaw);
     }
 
-    public function callApi($fields)
+    private function callApi($fields)
     {
         $response = Http::withHeaders([
             'Authorization' => 'key=' . config('larafirebase.authentication_key')
