@@ -1,3 +1,18 @@
+<p align="center"><img src="https://kutia.net/wp-content/uploads/2021/02/Laravel-Kutia.png" height="400"></p>
+
+<p align="center">
+    <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
+        <img src="https://img.shields.io/packagist/dt/kutia-software-company/larafirebase" alt="Total Downloads">
+    </a>
+    <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
+        <img src="https://img.shields.io/packagist/v/kutia-software-company/larafirebase" alt="Latest Stable Version">
+    </a>
+    <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
+        <img src="https://img.shields.io/packagist/l/kutia-software-company/larafirebase" alt="License">
+    </a>
+</p>
+
+
 ### Introduction
 
 **Larafirebase** is a package thats offers you to send push notifications or custom messages via Firebase in Laravel.
