@@ -42,37 +42,29 @@ use Kutia\Larafirebase\Facades\Larafirebase;
 
 class MyController
 {
+    private $deviceTokens =['{TOKEN_1}', '{TOKEN_2}'];
+
     public function sendNotification()
     {
-        $deviceTokens = [
-            '{TOKEN_1}',
-            '{TOKEN_2}'
-        ];
-        
         return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
             ->withClickAction('admin/notifications')
             ->withPriority('high')
-            ->sendNotification($deviceTokens);
+            ->sendNotification($this->deviceTokens);
         
         // Or
-        return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendNotification($deviceTokens);
+        return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendNotification($this->deviceTokens);
     }
 
     public function sendMessage()
     {
-        $deviceTokens = [
-            '{TOKEN_1}',
-            '{TOKEN_2}'
-        ];
-        
         return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
-            ->sendMessage($deviceTokens);
+            ->sendMessage($this->deviceTokens);
             
         // Or
-        return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendMessage($deviceTokens);
+        return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendMessage($this->deviceTokens);
     }
 }
 ```
