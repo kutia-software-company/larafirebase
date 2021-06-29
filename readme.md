@@ -1,4 +1,4 @@
-<p align="center"><img src="https://kutia.net/wp-content/uploads/2021/02/Laravel-Kutia.png" height="400"></p>
+<p align="center"><img src="/art/cover.png" height="400"></p>
 
 <p align="center">
     <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
