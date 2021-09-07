@@ -186,6 +186,6 @@ return Larafirebase::fromRaw([
 ])->send();
 ```
 
-### Author
-* Name: **Gentrit Abazi**
-* Email: **gentritabazi@kutia.net**
+---
+
+<sup>Made with ♥ by Gentrit Abazi ([@gentritabazi01](https://github.com/gentritabazi01)).</sup>
