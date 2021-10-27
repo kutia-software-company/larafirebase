@@ -9,12 +9,14 @@ class FirebaseMessage
     const PRIORITY_NORMAL = 'normal';
 
     private $title;
-    
+
     private $body;
 
     private $clickAction;
 
     private $image;
+
+    private $icon;
 
     private $priority = self::PRIORITY_NORMAL;
 
@@ -48,6 +50,13 @@ class FirebaseMessage
         return $this;
     }
 
+    public function withIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
     public function withPriority($priority)
     {
         $this->priority = $priority;
@@ -72,6 +81,7 @@ class FirebaseMessage
             ->withBody($this->body)
             ->withClickAction($this->clickAction)
             ->withImage($this->image)
+            ->withIcon($this->icon)
             ->withPriority($this->priority)
             ->sendNotification($deviceTokens);
     }
@@ -86,6 +96,7 @@ class FirebaseMessage
             ->withBody($this->body)
             ->withClickAction($this->clickAction)
             ->withImage($this->image)
+            ->withIcon($this->icon)
             ->withPriority($this->priority)
             ->sendMessage($deviceTokens);
     }

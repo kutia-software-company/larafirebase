@@ -64,6 +64,7 @@ class MyController
         return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
+            ->withIcon('https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png')
             ->withClickAction('admin/notifications')
             ->withPriority('high')
             ->sendNotification($this->deviceTokens);
