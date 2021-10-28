@@ -10,7 +10,6 @@ class Larafirebase
     const PRIORITY_NORMAL = 'normal';
 
     private $title;
-
     private $body;
 
     private $clickAction;
