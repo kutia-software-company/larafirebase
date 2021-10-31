@@ -10,12 +10,13 @@ class Larafirebase
     const PRIORITY_NORMAL = 'normal';
 
     private $title;
-    
     private $body;
 
     private $clickAction;
 
     private $image;
+
+    private $icon;
 
     private $priority = self::PRIORITY_NORMAL;
 
@@ -53,6 +54,13 @@ class Larafirebase
         return $this;
     }
 
+    public function withIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
     public function withPriority($priority)
     {
         $this->priority = $priority;
@@ -82,6 +90,7 @@ class Larafirebase
                 'title' => $this->title,
                 'body' => $this->body,
                 'image' => $this->image,
+                'icon' => $this->icon,
                 'click_action' => $this->clickAction
             ],
             'priority' => $this->priority
@@ -97,11 +106,12 @@ class Larafirebase
             'data' => ($this->fromArray) ? $this->fromArray : [
                 'title' => $this->title,
                 'body' => $this->body,
-                'image' => $this->image
+                'image' => $this->image,
+                'icon' => $this->icon
             ],
             'priority' => $this->priority
         );
-        
+
         return $this->callApi($fields);
     }
 

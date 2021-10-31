@@ -1,3 +1,18 @@
+<p align="center"><img src="/art/cover.png" height="400"></p>
+
+<p align="center">
+    <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
+        <img src="https://img.shields.io/packagist/dt/kutia-software-company/larafirebase" alt="Total Downloads">
+    </a>
+    <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
+        <img src="https://img.shields.io/packagist/v/kutia-software-company/larafirebase" alt="Latest Stable Version">
+    </a>
+    <a href="https://packagist.org/packages/kutia-software-company/larafirebase">
+        <img src="https://img.shields.io/packagist/l/kutia-software-company/larafirebase" alt="License">
+    </a>
+</p>
+
+
 ### Introduction
 
 **Larafirebase** is a package thats offers you to send push notifications or custom messages via Firebase in Laravel.
@@ -49,6 +64,7 @@ class MyController
         return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
+            ->withIcon('https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png')
             ->withClickAction('admin/notifications')
             ->withPriority('high')
             ->sendNotification($this->deviceTokens);
@@ -171,6 +187,6 @@ return Larafirebase::fromRaw([
 ])->send();
 ```
 
-### Author
-* Name: **Gentrit Abazi**
-* Email: **gentritabazi@kutia.net**
+---
+
+<sup>Made with ♥ by Gentrit Abazi ([@gentritabazi01](https://github.com/gentritabazi01)).</sup>
