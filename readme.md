@@ -67,6 +67,10 @@ class MyController
             ->withIcon('https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png')
             ->withClickAction('admin/notifications')
             ->withPriority('high')
+            ->withAdditionalData([
+                'routing_key' => 'some_screen',
+                'routing_value' => 42
+            ])
             ->sendNotification($this->deviceTokens);
         
         // Or
