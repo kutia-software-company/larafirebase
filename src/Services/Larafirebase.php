@@ -10,7 +10,7 @@ class Larafirebase
     const PRIORITY_NORMAL = 'normal';
 
     private $title;
-    
+
     private $body;
 
     private $clickAction;
@@ -18,6 +18,8 @@ class Larafirebase
     private $image;
 
     private $icon;
+
+    private $additionalData;
 
     private $priority = self::PRIORITY_NORMAL;
 
@@ -69,6 +71,13 @@ class Larafirebase
         return $this;
     }
 
+    public function withAdditionalData($additionalData)
+    {
+        $this->additionalData = $additionalData;
+
+        return $this;
+    }
+
     public function fromArray($fromArray)
     {
         $this->fromArray = $fromArray;
@@ -94,25 +103,28 @@ class Larafirebase
                 'icon' => $this->icon,
                 'click_action' => $this->clickAction
             ],
+            'data' => $this->additionalData,
             'priority' => $this->priority
         );
-
         return $this->callApi($fields);
     }
 
     public function sendMessage($tokens)
     {
+        $data = ($this->fromArray) ? $this->fromArray : [
+            'title' => $this->title,
+            'body' => $this->body,
+            'image' => $this->image,
+            'icon' => $this->icon
+        ];
+
+        $data = $this->additionalData ? array_merge($data, $this->additionalData) : $data;
+
         $fields = array(
             'registration_ids' => $this->validateToken($tokens),
-            'data' => ($this->fromArray) ? $this->fromArray : [
-                'title' => $this->title,
-                'body' => $this->body,
-                'image' => $this->image,
-                'icon' => $this->icon
-            ],
+            'data' => $data,
             'priority' => $this->priority
         );
-
         return $this->callApi($fields);
     }
 
