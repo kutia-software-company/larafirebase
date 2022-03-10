@@ -65,6 +65,7 @@ class MyController
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
             ->withIcon('https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png')
+            ->withSound('default')
             ->withClickAction('admin/notifications')
             ->withPriority('high')
             ->withAdditionalData([
