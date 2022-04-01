@@ -1,12 +1,12 @@
 {
-    "name": "kutia-software-company/larafirebase",
+    "name": "Mahmoud-kamal12/larafirebase",
     "description": "Laravel Firebase Cloud Messaging.",
-    "homepage": "https://github.com/kutia-software-company/larafirebase",
+    "homepage": "https://github.com/Mahmoud-kamal12/larafirebase",
     "license": "MIT",
     "authors": [
         {
-            "name": "Gentrit Abazi",
-            "email": "gentritabazi01@gmail.com"
+            "name": "Mahmoud Kamal",
+            "email": "mahmoudkamal012011@gmail.com"
         }
     ],
     "autoload": {
