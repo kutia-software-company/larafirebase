@@ -13,6 +13,8 @@ class Larafirebase
 
     private $body;
 
+    private $topic;
+
     private $clickAction;
 
     private $image;
@@ -32,6 +34,13 @@ class Larafirebase
     public function withTitle($title)
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function withTopic($title)
+    {
+        $this->topic = $title;
 
         return $this;
     }
@@ -109,6 +118,23 @@ class Larafirebase
         return $this->callApi($fields);
     }
 
+    public function sendNotificationToTopic($tokens)
+    {
+        $fields = array(
+            'to' => $this->topic,
+            'notification' => ($this->fromArray) ? $this->fromArray : [
+                'title' => $this->title,
+                'body' => $this->body,
+                'image' => $this->image,
+                'icon' => $this->icon,
+                'click_action' => $this->clickAction
+            ],
+            'data' => $this->additionalData,
+            'priority' => $this->priority
+        );
+        return $this->callApi($fields);
+    }
+
     public function sendMessage($tokens)
     {
         $data = ($this->fromArray) ? $this->fromArray : [
@@ -122,6 +148,25 @@ class Larafirebase
 
         $fields = array(
             'registration_ids' => $this->validateToken($tokens),
+            'data' => $data,
+            'priority' => $this->priority
+        );
+        return $this->callApi($fields);
+    }
+
+    public function sendMessageToTopic($tokens)
+    {
+        $data = ($this->fromArray) ? $this->fromArray : [
+            'title' => $this->title,
+            'body' => $this->body,
+            'image' => $this->image,
+            'icon' => $this->icon
+        ];
+
+        $data = $this->additionalData ? array_merge($data, $this->additionalData) : $data;
+
+        $fields = array(
+            'to' => $this->topic,
             'data' => $data,
             'priority' => $this->priority
         );
