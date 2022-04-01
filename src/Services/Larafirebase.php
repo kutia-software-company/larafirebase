@@ -121,7 +121,7 @@ class Larafirebase
     public function sendNotificationToTopic($tokens)
     {
         $fields = array(
-            'to' => $this->topic,
+            'topic' => $this->topic,
             'notification' => ($this->fromArray) ? $this->fromArray : [
                 'title' => $this->title,
                 'body' => $this->body,
@@ -166,7 +166,7 @@ class Larafirebase
         $data = $this->additionalData ? array_merge($data, $this->additionalData) : $data;
 
         $fields = array(
-            'to' => $this->topic,
+            'topic' => $this->topic,
             'data' => $data,
             'priority' => $this->priority
         );
