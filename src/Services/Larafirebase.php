@@ -118,10 +118,10 @@ class Larafirebase
         return $this->callApi($fields);
     }
 
-    public function sendNotificationToTopic($tokens)
+    public function sendNotificationToTopic()
     {
         $fields = array(
-            'topic' => $this->topic,
+            'to' => "/topics/".$this->topic,
             'notification' => ($this->fromArray) ? $this->fromArray : [
                 'title' => $this->title,
                 'body' => $this->body,
@@ -154,7 +154,7 @@ class Larafirebase
         return $this->callApi($fields);
     }
 
-    public function sendMessageToTopic($tokens)
+    public function sendMessageToTopic()
     {
         $data = ($this->fromArray) ? $this->fromArray : [
             'title' => $this->title,
@@ -166,7 +166,7 @@ class Larafirebase
         $data = $this->additionalData ? array_merge($data, $this->additionalData) : $data;
 
         $fields = array(
-            'topic' => $this->topic,
+            'to' => "//topics//".$this->topic,
             'data' => $data,
             'priority' => $this->priority
         );
