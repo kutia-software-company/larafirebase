@@ -166,7 +166,7 @@ class Larafirebase
         $data = $this->additionalData ? array_merge($data, $this->additionalData) : $data;
 
         $fields = array(
-            'to' => "//topics//".$this->topic,
+            'to' => "/topics/".$this->topic,
             'data' => $data,
             'priority' => $this->priority
         );
