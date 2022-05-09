@@ -115,7 +115,7 @@ class Larafirebase
             'data' => $this->additionalData,
             'priority' => $this->priority
         );
-        if (isset($iosBadgeCount)) {
+        if (isset($this->iosBadgeCount)) {
             $fields['apns'] = [
                 'payload' => [
                     'aps' => [
