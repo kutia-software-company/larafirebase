@@ -29,6 +29,8 @@ class Larafirebase
 
     private $badgeCount;
 
+    private $contentAvailable;
+
     const API_URI = 'https://fcm.googleapis.com/fcm/send';
 
     public function withTitle($title)
@@ -101,6 +103,13 @@ class Larafirebase
         return $this;
     }
 
+    public function withContentAvailable($contentAvailable)
+    {
+        $this->contentAvailable = $contentAvailable;
+
+        return $this;
+    }
+
     public function sendNotification($tokens)
     {
         $fields = array(
@@ -117,6 +126,9 @@ class Larafirebase
         );
         if (isset($this->badgeCount)) {
             $fields['notification']['badge'] = $this->badgeCount;
+        }
+        if (isset($this->contentAvailable)) {
+            $fields['notification']['content_available'] = $this->contentAvailable;
         }
         return $this->callApi($fields);
     }
