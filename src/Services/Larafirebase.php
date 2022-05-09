@@ -119,7 +119,7 @@ class Larafirebase
             $fields['apns'] = [
                 'payload' => [
                     'aps' => [
-                        'badge' => $iosBadgeCount
+                        'badge' => $this->iosBadgeCount
                     ]
                 ]
             ];
