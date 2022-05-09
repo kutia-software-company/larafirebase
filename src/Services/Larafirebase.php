@@ -27,6 +27,8 @@ class Larafirebase
 
     private $fromRaw;
 
+    private $iosBadgeCount;
+
     const API_URI = 'https://fcm.googleapis.com/fcm/send';
 
     public function withTitle($title)
@@ -92,6 +94,13 @@ class Larafirebase
         return $this;
     }
 
+    public function withIosBadgeCount($iosBadgeCount)
+    {
+        $this->iosBadgeCount = $iosBadgeCount;
+
+        return $this;
+    }
+
     public function sendNotification($tokens)
     {
         $fields = array(
@@ -106,6 +115,15 @@ class Larafirebase
             'data' => $this->additionalData,
             'priority' => $this->priority
         );
+        if (isset($iosBadgeCount)) {
+            $fields['apns'] = [
+                'payload' => [
+                    'aps' => [
+                        'badge' => $iosBadgeCount
+                    ]
+                ]
+            ];
+        }
         return $this->callApi($fields);
     }
 
