@@ -94,7 +94,7 @@ class Larafirebase
         return $this;
     }
 
-    public function withBadgeCount($iosBadgeCount)
+    public function withBadgeCount($badgeCount)
     {
         $this->badgeCount = $badgeCount;
 
