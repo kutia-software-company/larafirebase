@@ -110,6 +110,22 @@ class Larafirebase
         return $this;
     }
 
+    public function sendBackgroundUpdate($tokens)
+    {
+        $fields = array(
+            'registration_ids' => $this->validateToken($tokens),
+            'notification' => ($this->fromArray) ? $this->fromArray : [
+                'content_available' => true
+            ],
+            'data' => $this->additionalData,
+            'priority' => $this->priority
+        );
+        if (isset($this->badgeCount)) {
+            $fields['notification']['badge'] = $this->badgeCount;
+        }
+        return $this->callApi($fields);
+    }
+
     public function sendNotification($tokens)
     {
         $fields = array(
