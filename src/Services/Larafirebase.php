@@ -67,11 +67,11 @@ class Larafirebase
     }
 
     public function withSound($sound)
-     {
-         $this->sound = $sound;
+    {
+        $this->sound = $sound;
 
-         return $this;
-     }
+        return $this;
+    }
      
     public function withPriority($priority)
     {
