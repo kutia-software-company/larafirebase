@@ -112,7 +112,6 @@ class Larafirebase
                 'icon' => $this->icon,
                 'sound' => $this->sound,
                 'click_action' => $this->clickAction
-                
             ],
             'data' => $this->additionalData,
             'priority' => $this->priority
