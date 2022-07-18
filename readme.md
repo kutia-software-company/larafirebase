@@ -65,11 +65,12 @@ class MyController
             ->withBody('Test body')
             ->withImage('https://firebase.google.com/images/social.png')
             ->withIcon('https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png')
-            ->withClickAction('admin/notifications')
+            ->withSound('default')
+            ->withClickAction('https://www.google.com')
             ->withPriority('high')
             ->withAdditionalData([
-                'routing_key' => 'some_screen',
-                'routing_value' => 42
+                'color' => '#rrggbb',
+                'badge' => 0,
             ])
             ->sendNotification($this->deviceTokens);
         

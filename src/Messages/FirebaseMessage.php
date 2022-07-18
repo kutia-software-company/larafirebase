@@ -18,6 +18,8 @@ class FirebaseMessage
 
     private $icon;
 
+    private $sound;
+
     private $additionalData;
 
     private $priority = self::PRIORITY_NORMAL;
@@ -59,6 +61,13 @@ class FirebaseMessage
         return $this;
     }
 
+    public function withSound($sound)
+    {
+        $this->sound = $sound;
+
+        return $this;
+    }
+
     public function withAdditionalData($additionalData)
     {
         $this->additionalData = $additionalData;
@@ -91,6 +100,7 @@ class FirebaseMessage
             ->withClickAction($this->clickAction)
             ->withImage($this->image)
             ->withIcon($this->icon)
+            ->withSound($this->sound)
             ->withPriority($this->priority)
             ->withAdditionalData($this->additionalData)
             ->sendNotification($deviceTokens);
@@ -104,10 +114,6 @@ class FirebaseMessage
 
         return Larafirebase::withTitle($this->title)
             ->withBody($this->body)
-            ->withClickAction($this->clickAction)
-            ->withImage($this->image)
-            ->withIcon($this->icon)
-            ->withPriority($this->priority)
             ->withAdditionalData($this->additionalData)
             ->sendMessage($deviceTokens);
     }

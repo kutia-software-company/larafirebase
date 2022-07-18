@@ -116,6 +116,7 @@ class Larafirebase
             'data' => $this->additionalData,
             'priority' => $this->priority
         );
+
         return $this->callApi($fields);
     }
 
@@ -124,8 +125,6 @@ class Larafirebase
         $data = ($this->fromArray) ? $this->fromArray : [
             'title' => $this->title,
             'body' => $this->body,
-            'image' => $this->image,
-            'icon' => $this->icon
         ];
 
         $data = $this->additionalData ? array_merge($data, $this->additionalData) : $data;
@@ -133,8 +132,8 @@ class Larafirebase
         $fields = array(
             'registration_ids' => $this->validateToken($tokens),
             'data' => $data,
-            'priority' => $this->priority
         );
+
         return $this->callApi($fields);
     }
 
