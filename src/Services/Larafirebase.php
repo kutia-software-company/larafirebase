@@ -21,6 +21,8 @@ class Larafirebase
 
     private $additionalData;
 
+    private $sound;
+
     private $priority = self::PRIORITY_NORMAL;
 
     private $fromArray;
@@ -64,6 +66,13 @@ class Larafirebase
         return $this;
     }
 
+    public function withSound($sound)
+    {
+        $this->sound = $sound;
+
+        return $this;
+    }
+     
     public function withPriority($priority)
     {
         $this->priority = $priority;
@@ -101,6 +110,7 @@ class Larafirebase
                 'body' => $this->body,
                 'image' => $this->image,
                 'icon' => $this->icon,
+                'sound' => $this->sound,
                 'click_action' => $this->clickAction
             ],
             'data' => $this->additionalData,
