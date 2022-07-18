@@ -167,8 +167,7 @@ Larafirebase::withTitle('Test Title')->withBody('Test body')->sendMessage('token
   "data": {
     "title": "Test Title",
     "body": "Test body"
-  },
-  "priority": "normal"
+  }
 }
 ```
 
