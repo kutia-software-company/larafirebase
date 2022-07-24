@@ -2,6 +2,7 @@
 
 namespace Kutia\Larafirebase\Services;
 
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Kutia\Larafirebase\Exceptions\UnsupportedTokenFormat;
 
@@ -72,7 +73,7 @@ class Larafirebase
 
         return $this;
     }
-     
+
     public function withPriority($priority)
     {
         $this->priority = $priority;
@@ -142,13 +143,13 @@ class Larafirebase
         return $this->callApi($this->fromRaw);
     }
 
-    private function callApi($fields)
+    private function callApi($fields): Response
     {
         $response = Http::withHeaders([
             'Authorization' => 'key=' . config('larafirebase.authentication_key')
         ])->post(self::API_URI, $fields);
 
-        return $response->body();
+        return $response;
     }
 
     private function validateToken($tokens)
