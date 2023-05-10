@@ -28,6 +28,8 @@ class Larafirebase
 
     private $fromArray;
 
+    private $authenticationKey;
+
     private $fromRaw;
 
     const API_URI = 'https://fcm.googleapis.com/fcm/send';
@@ -84,6 +86,13 @@ class Larafirebase
     public function withAdditionalData($additionalData)
     {
         $this->additionalData = $additionalData;
+
+        return $this;
+    }
+
+    public function withAuthenticationKey($authenticationKey)
+    {
+        $this->authenticationKey = $authenticationKey;
 
         return $this;
     }
@@ -145,8 +154,10 @@ class Larafirebase
 
     private function callApi($fields): Response
     {
+        $authenticationKey = isset($this->authenticationKey) ? $this->authenticationKey:config('larafirebase.authentication_key');
+
         $response = Http::withHeaders([
-            'Authorization' => 'key=' . config('larafirebase.authentication_key')
+            'Authorization' => 'key=' . $authenticationKey
         ])->post(self::API_URI, $fields);
 
         return $response;
