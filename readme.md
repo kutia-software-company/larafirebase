@@ -194,3 +194,5 @@ return Larafirebase::fromRaw([
 ---
 
 <sup>Made with ♥ by Gentrit Abazi ([@gentritabazi01](https://github.com/gentritabazi01)).</sup>
+
+New package by the author is here https://github.com/gg-innovative/larafirebase and offers support for FCM HTTP V1 API and FCM Topics.
