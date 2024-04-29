@@ -111,10 +111,9 @@ class Larafirebase
         return $this;
     }
 
-    public function sendNotification($tokens)
+    public function toArray()
     {
-        $fields = array(
-            'registration_ids' => $this->validateToken($tokens),
+        return [
             'notification' => ($this->fromArray) ? $this->fromArray : [
                 'title' => $this->title,
                 'body' => $this->body,
@@ -125,6 +124,14 @@ class Larafirebase
             ],
             'data' => $this->additionalData,
             'priority' => $this->priority
+        ];
+    }
+
+    public function sendNotification($tokens)
+    {
+        $fields = array_merge(
+            ['registration_ids' => $this->validateToken($tokens)],
+            $this->toArray()
         );
 
         return $this->callApi($fields);
