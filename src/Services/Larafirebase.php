@@ -8,13 +8,11 @@ use Kutia\Larafirebase\Exceptions\UnsupportedTokenFormat;
 
 class Larafirebase
 {
-    const PRIORITY_NORMAL = 'normal';
+    public const PRIORITY_NORMAL = 'normal';
 
     private $title;
 
     private $body;
-
-    private $clickAction;
 
     private $image;
 
@@ -32,7 +30,7 @@ class Larafirebase
 
     private $fromRaw;
 
-    const API_URI = 'https://fcm.googleapis.com/fcm/send';
+    public const API_URI = 'https://fcm.googleapis.com/fcm/send';
 
     public function withTitle($title)
     {
@@ -44,13 +42,6 @@ class Larafirebase
     public function withBody($body)
     {
         $this->body = $body;
-
-        return $this;
-    }
-
-    public function withClickAction($clickAction)
-    {
-        $this->clickAction = $clickAction;
 
         return $this;
     }
@@ -121,7 +112,6 @@ class Larafirebase
                 'image' => $this->image,
                 'icon' => $this->icon,
                 'sound' => $this->sound,
-                'click_action' => $this->clickAction
             ],
             'data' => $this->additionalData,
             'priority' => $this->priority
@@ -154,7 +144,7 @@ class Larafirebase
 
     private function callApi($fields): Response
     {
-        $authenticationKey = isset($this->authenticationKey) ? $this->authenticationKey:config('larafirebase.authentication_key');
+        $authenticationKey = isset($this->authenticationKey) ? $this->authenticationKey : config('larafirebase.authentication_key');
 
         $response = Http::withHeaders([
             'Authorization' => 'key=' . $authenticationKey
